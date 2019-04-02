@@ -33,48 +33,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 <div class="row col-lg-12">
                     <div class="form-group col-lg-4">
                         <label for="id_categoria">Categoria</label>
                         <select class="form-control" name="id_categoria" id="id_categoria" required>
                             <option value="">Selecione Categoria</option>
-                            <?php foreach ($vercategoria as $verregistro): ?>
-                                <option value="<?php echo $verregistro['id'] ?>"><?php echo $verregistro['nome']; ?></option>
+                            <?php 
+                            
+                            foreach ($vercategoria as $verregistro): 
+                                
+                                
+                                //$selecionar = ($verregistro['id'] == $registro['id_categoria'] ? 'selected="selected"' : "");
+                                
+                                
+                                if ($verregistro['id'] == $registro['id_categoria'])
+                                     {
+                                         $selecionar='selected="selected"';
+                                    } 
+                                else {
+                                    
+                                    $selecionar = "";
+                                }
+
+                                
+                                ?>
+                                <option <?=$selecionar;?> value="<?php echo $verregistro['id'] ?>"><?php echo $verregistro['nome']; ?></option>
 
                             <?php endforeach; ?>
                         </select>
                     </div>
                 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -89,6 +77,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                 </div>
 
+             
+
                 <div class="row col-lg-12">
                     <div class="form-group col-lg-8">
                         <label for="exampleInputEmail1">Valor
@@ -102,15 +92,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                 </div>
 
+                <div class="row col-lg-12">
+                    <div class="form-group col-lg-8">
+                        
+                        <img class="img-thumbnail col-xs-2 col-sm-2 col-md-2 col-lg-2" src="<?php if ($registro['foto'] != ""){
+                            echo base_url('assets/imagens/'.$registro['foto']);
+                        }else{
+                            echo base_url('assets/imagens/'."default.png");
+                        } ?>">
+                     
+                    </div>
 
-
-
-
-
-
-
-
-
+                </div>
 
 
                 <div class="row col-lg-12">
@@ -125,14 +118,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
 
                 </div>
-
-
-
-
-
-
-
-
 
 
 

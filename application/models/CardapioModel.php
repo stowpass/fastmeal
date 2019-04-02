@@ -74,12 +74,30 @@ class CardapioModel extends CI_Model
 //==============================================================
     public function atualizar($id)
     {
-           
-          foreach(array_keys($_POST) as $chave){
-                eval('$this->' . $chave . ' = $_POST["' . $chave . '"];');
-            }
+        $fotografias = array();
+        foreach ($_FILES as $foto) {
 
-            return $this->db->update('cardapios', $this, "id = $id");
+            if($foto['name'] !=''){
+                $novo_nome = uniqid().'_'.$foto['name'];
+                array_push($fotografias,$novo_nome);
+                move_uploaded_file($foto['tmp_name'],'assets/imagens/' .$novo_nome);
+            }
+        }
+
+        $data = array(
+            'nome'           => $_POST['nome'],
+            'id_categoria'   => $_POST['id_categoria'],
+            'descricao'      => $_POST['descricao'],
+            'valor'          => $_POST['valor'],
+            'foto'          => $novo_nome
+
+    );
+         /* foreach(array_keys($_POST) as $chave){
+                eval('$this->' . $chave . ' = $_POST["' . $chave . '"];');
+            }*/
+
+
+            return $this->db->update('cardapios', $data, "id = $id");
          
 
     }
