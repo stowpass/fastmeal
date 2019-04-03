@@ -15,7 +15,7 @@ class CardapioModel extends CI_Model
         $this->db->order_by('nome', 'asc');
         $query = $this->db->get();
         return $query->result_array();
-        // Antiga tava fazendo assim
+        // Antiga tava fazendo aaulssim
         /// return $this->db->get('empresas')->order_by('id', 'desc')->result_array();
 	    ///
     }
@@ -29,8 +29,6 @@ class CardapioModel extends CI_Model
             "id_categoria"=>"",
             "valor"=>"",
             "foto"=>"",
-
-
         ));
 
     }
@@ -42,8 +40,7 @@ class CardapioModel extends CI_Model
                 eval('$this->' . $chave . ' = $_POST["' . $chave . '"];');
             }
             */    
-            
-            
+        
             $fotografias = array();
             foreach ($_FILES as $foto) {
 
@@ -51,6 +48,8 @@ class CardapioModel extends CI_Model
                     $novo_nome = uniqid().'_'.$foto['name'];
                     array_push($fotografias,$novo_nome);
                     move_uploaded_file($foto['tmp_name'],'assets/imagens/' .$novo_nome);
+                }else{
+                    $novo_nome = "default.png";
                 }
             }
 
@@ -65,15 +64,13 @@ class CardapioModel extends CI_Model
       
             return $this->db->insert('cardapios', $data);
 
-          
-
-
-            
 
     }
 //==============================================================
     public function atualizar($id)
     {
+
+      
         $fotografias = array();
         foreach ($_FILES as $foto) {
 
@@ -81,17 +78,29 @@ class CardapioModel extends CI_Model
                 $novo_nome = uniqid().'_'.$foto['name'];
                 array_push($fotografias,$novo_nome);
                 move_uploaded_file($foto['tmp_name'],'assets/imagens/' .$novo_nome);
+            }else{
+                $novo_nome = "";
             }
-        }
-
+            
+                   }
+        if ($novo_nome == "") {
+             
         $data = array(
             'nome'           => $_POST['nome'],
-            'id_categoria'   => $_POST['id_categoria'],
+            'id_categoria'   => $_POST['id_categoria'], 
             'descricao'      => $_POST['descricao'],
             'valor'          => $_POST['valor'],
-            'foto'          => $novo_nome
-
-    );
+        );
+        } else {
+            $data = array(
+                'nome'           => $_POST['nome'],
+                'id_categoria'   => $_POST['id_categoria'], 
+                'descricao'      => $_POST['descricao'],
+                'valor'          => $_POST['valor'],
+                'foto'          => $novo_nome       
+            );
+         }
+        
          /* foreach(array_keys($_POST) as $chave){
                 eval('$this->' . $chave . ' = $_POST["' . $chave . '"];');
             }*/
@@ -99,7 +108,6 @@ class CardapioModel extends CI_Model
 
             return $this->db->update('cardapios', $data, "id = $id");
          
-
     }
 
     

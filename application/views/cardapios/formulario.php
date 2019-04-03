@@ -95,7 +95,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="row col-lg-12">
                     <div class="form-group col-lg-8">
                         
-                        <img class="img-thumbnail col-xs-2 col-sm-2 col-md-2 col-lg-2" src="<?php if ($registro['foto'] != ""){
+                        <img class="img-thumbnail col-xs-2 col-sm-2 col-md-2 col-lg-2" src="<?php
+                         if ($registro['foto'] != ""){
                             echo base_url('assets/imagens/'.$registro['foto']);
                         }else{
                             echo base_url('assets/imagens/'."default.png");
@@ -110,10 +111,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="form-group col-lg-8">
                         <label for="exampleInputEmail1">Foto
                             <input type="file" class="form-control"
-                                   id="nome"
+                                   id="foto"
                                    name="foto"
 
-                                   value="<?= $registro['foto']; ?>"
+                                   value=""
                             >
                     </div>
 
