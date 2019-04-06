@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class CardapioModel extends CI_Model
+class Cardapiomodel extends CI_Model
 {
     function __construct()
     {
@@ -101,6 +101,17 @@ class CardapioModel extends CI_Model
             );
          }
         
+
+         /* Poderia ser resumido assim:::::::::::::::::::::::::::::::::::::::::::::::::
+         
+        if($novo_nome == "") unset($_POST['foto']);
+        else $_POST['foto'] = $novo_nome;
+        
+         foreach(array_keys($_POST) as $chave){
+                eval('$this->' . $chave . ' = $_POST["' . $chave . '"];');
+            }
+
+*/
          /* foreach(array_keys($_POST) as $chave){
                 eval('$this->' . $chave . ' = $_POST["' . $chave . '"];');
             }*/

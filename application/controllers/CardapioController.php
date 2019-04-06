@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class CardapioController extends CI_Controller {
+class Cardapiocontroller extends CI_Controller {
 
         public function index ()
         {

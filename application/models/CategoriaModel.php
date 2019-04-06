@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class CategoriaModel extends CI_Model
+class Categoriamodel extends CI_Model
 {
     function __construct()
     {
