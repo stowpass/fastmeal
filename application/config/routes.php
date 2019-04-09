@@ -24,3 +24,20 @@ $route['cardapio/editar/(:num)']= 'cardapiocontroller/editar/$1';
 $route['cardapio/atualizar/(:num)'] = 'cardapiocontroller/atualizar/$1';
 $route['cardapio/abrir/(:num)'] = 'cardapiocontroller/abrir/$1';
 $route['cardapio/excluir/(:num)'] = 'cardapiocontroller/excluir/$1';
+
+$route['mesa'] = 'mesacontroller/index';
+$route['mesa/salvar'] = 'mesacontroller/salvar';
+$route['mesa/novo'] = 'mesacontroller/novo';
+$route['mesa/editar/(:num)']= 'mesacontroller/editar/$1';
+$route['mesa/atualizar/(:num)'] = 'mesacontroller/atualizar/$1';
+$route['mesa/abrir/(:num)'] = 'mesacontroller/abrir/$1';
+$route['mesa/excluir/(:num)'] = 'mesacontroller/excluir/$1';
+
+
+$route['garcon'] = 'garconcontroller/index';
+$route['garcon/salvar'] = 'garconcontroller/salvar';
+$route['garcon/novo'] = 'garconcontroller/novo';
+$route['garcon/editar/(:num)']= 'garconcontroller/editar/$1';
+$route['garcon/atualizar/(:num)'] = 'garconcontroller/atualizar/$1';
+$route['garcon/abrir/(:num)'] = 'garconcontroller/abrir/$1';
+$route['garcon/excluir/(:num)'] = 'garconcontroller/excluir/$1';

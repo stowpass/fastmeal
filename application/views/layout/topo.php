@@ -354,8 +354,22 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li class="active"><a href="<?php echo base_url ('categoria'); ?>"><i class="fa fa-circle-o"></i>Categorias</a></li>
-                        <li><a href="<?php echo base_url ('cardapio'); ?>"><i class="fa fa-circle-o"></i> Cardapio</a></li>
+                        <li class="active">
+                            <a href="<?php echo base_url ('categoria'); ?>">
+                            <i class="fa fa-circle-o"></i>Categorias</a>
+                         </li>
+                        <li>
+                            <a href="<?php echo base_url ('cardapio'); ?>">
+                            <i class="fa fa-circle-o"></i>Cardapio</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url ('mesa'); ?>">
+                            <i class="fa fa-circle-o"></i>Mesas</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url ('garcon'); ?>">
+                            <i class="fa fa-circle-o"></i>Cadastrar Garçon</a>
+                        </li>
                     </ul>
                 </li>
              
