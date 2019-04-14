@@ -11,7 +11,7 @@ class Garconmodel extends CI_Model
 
     public function listarGarcon(){
 
-        $this->db->from('garcons');
+        $this->db->from('garcons')->where('status = 1');
         $this->db->order_by('nome', 'asc');
         $query = $this->db->get();
         return $query->result_array();
@@ -87,7 +87,11 @@ class Garconmodel extends CI_Model
     
     public function excluir($id)
     {
-         $this->db->delete('garcons', "id = $id");
+        $data = array(
+            'status'           => '0'     
+        );
+        
+        return $this->db->update('garcons', $data, "id = $id");
         
     }
    

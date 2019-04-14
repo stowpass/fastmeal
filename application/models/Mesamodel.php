@@ -11,7 +11,7 @@ class Mesamodel extends CI_Model
 
     public function listarMesa(){
 
-        $this->db->from('mesas');
+        $this->db->from('mesas')->where('status = 1');
         $this->db->order_by('nome', 'asc');
         $query = $this->db->get();
         return $query->result_array();
@@ -57,7 +57,11 @@ class Mesamodel extends CI_Model
     
     public function excluir($id)
     {
-         $this->db->delete('mesas', "id = $id");
+        $data = array(
+            'status'           => '0'     
+        );
+        
+        return $this->db->update('mesas', $data, "id = $id");
         
     }
    

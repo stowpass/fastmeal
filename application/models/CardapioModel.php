@@ -11,7 +11,7 @@ class Cardapiomodel extends CI_Model
 
     public function listarCardapio(){
 
-        $this->db->from('cardapios');
+        $this->db->from('cardapios')->where('status = 1');
         $this->db->order_by('nome', 'asc');
         $query = $this->db->get();
         return $query->result_array();
@@ -123,8 +123,13 @@ class Cardapiomodel extends CI_Model
 
     
     public function excluir($id)
+
     {
-         $this->db->delete('cardapios', "id = $id");
+        $data = array(
+            'status'           => '0'     
+        );
+        
+        return $this->db->update('cardapios', $data, "id = $id");
         
     }
    

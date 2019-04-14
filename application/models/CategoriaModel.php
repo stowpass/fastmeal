@@ -11,7 +11,7 @@ class Categoriamodel extends CI_Model
 
     public function listarCategoria(){
 
-        $this->db->from('categorias');
+        $this->db->from('categorias')->where('status = 1');
         $this->db->order_by('nome', 'asc');
         $query = $this->db->get();
         return $query->result_array();
@@ -57,7 +57,11 @@ class Categoriamodel extends CI_Model
     
     public function excluir($id)
     {
-         $this->db->delete('categorias', "id = $id");
+        $data = array(
+            'status'           => '0'     
+        );
+        
+        return $this->db->update('categorias', $data, "id = $id");
         
     }
    

@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('URL inválida.');
     </div>
     <br>
     <hr>
-    <a href="<?php echo site_url('garcon/novo'); ?>" class="btn btn-primary mb-2">Novo garcon</a>
+    <a href="<?php echo site_url('garcon/novo'); ?>" class="btn btn-primary mb-2">Novo Garçon</a>
   <hr>
 
     <table class="table  table-bordered">
