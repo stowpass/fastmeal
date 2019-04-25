@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /*served routes:
 		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'inicial';
+$route['default_controller'] = 'logincontroller';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
@@ -24,6 +24,8 @@ $route['cardapio/editar/(:num)']= 'cardapiocontroller/editar/$1';
 $route['cardapio/atualizar/(:num)'] = 'cardapiocontroller/atualizar/$1';
 $route['cardapio/abrir/(:num)'] = 'cardapiocontroller/abrir/$1';
 $route['cardapio/excluir/(:num)'] = 'cardapiocontroller/excluir/$1';
+$route['cardapio/json'] = 'cardapiocontroller/json';
+
 
 $route['mesa'] = 'mesacontroller/index';
 $route['mesa/salvar'] = 'mesacontroller/salvar';
@@ -41,3 +43,8 @@ $route['garcon/editar/(:num)']= 'garconcontroller/editar/$1';
 $route['garcon/atualizar/(:num)'] = 'garconcontroller/atualizar/$1';
 $route['garcon/abrir/(:num)'] = 'garconcontroller/abrir/$1';
 $route['garcon/excluir/(:num)'] = 'garconcontroller/excluir/$1';
+
+
+$route['login'] = 'logincontroller/index';
+$route['login/verificar'] = 'logincontroller/verificar';
+

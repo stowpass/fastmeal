@@ -70,7 +70,19 @@ public function excluir($id)
 
 }
 
+public function json()
+{
 
+        $this->load->model('cardapiomodel');
+        $lista['cardapios'] = $this->cardapiomodel->listarCardapio();
+        $jax = $this->cardapiomodel->listarCardapio();
+        echo "<pre>";
+       echo json_encode($jax);
+        print_r($jax);
+        echo "</pre>";
+
+
+}
 
 
 

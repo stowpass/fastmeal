@@ -20,6 +20,19 @@ class Cardapiomodel extends CI_Model
 	    ///
     }
 
+    
+    public function json(){
+
+        $this->db->from('cardapios')->where('status = 1');
+        $this->db->order_by('nome', 'asc');
+        $query = $this->db->get();
+        //return $query->result_array();
+
+        // Antiga tava fazendo aaulssim
+        /// return $this->db->get('empresas')->order_by('id', 'desc')->result_array();
+	    ///
+    }
+
     public  function vazio(){
         
         return array (0=>array(
