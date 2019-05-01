@@ -33,36 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                 </div>
 
-                <div class="row col-lg-12">
-                    <div class="form-group col-lg-4">
-                        <label for="id_mesa">mesa</label>
-                        <select class="form-control" name="id_mesa" id="id_mesa" required>
-                            <option value="">Selecione mesa</option>
-                            <?php 
-                            
-                            foreach ($vermesa as $verregistro): 
-                                
-                                
-                                //$selecionar = ($verregistro['id'] == $registro['id_mesa'] ? 'selected="selected"' : "");
-                                
-                                
-                                if ($verregistro['id'] == $registro['id_mesa'])
-                                     {
-                                         $selecionar='selected="selected"';
-                                    } 
-                                else {
-                                    
-                                    $selecionar = "";
-                                }
-
-                                
-                                ?>
-                                <option <?=$selecionar;?> value="<?php echo $verregistro['id'] ?>"><?php echo $verregistro['nome']; ?></option>
-
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                </div>
+               
 
 
             </div>

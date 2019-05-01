@@ -26,7 +26,6 @@ class Garconmodel extends CI_Model
             
             "nome"=>"",
           
-            "id_mesa"=>"",
            
         ));
 
@@ -44,7 +43,6 @@ class Garconmodel extends CI_Model
 
             $data = array(
                 'nome'           => $_POST['nome'],
-                'id_mesa'   => $_POST['id_mesa'],
             
 
         );
@@ -60,7 +58,6 @@ class Garconmodel extends CI_Model
        
             $data = array(
                 'nome'           => $_POST['nome'],
-                'id_mesa'   => $_POST['id_mesa'], 
             );
          
         

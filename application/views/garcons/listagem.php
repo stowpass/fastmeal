@@ -21,7 +21,6 @@ defined('BASEPATH') OR exit('URL inválida.');
 
         <tr>
             <th scope="col">Nome do Garçon</th>
-            <th scope="col"><center>Mesa de Atendimento</center></th>
             
             <th scope="col"><center>Ações</center></th>
 
@@ -34,12 +33,10 @@ defined('BASEPATH') OR exit('URL inválida.');
 
             <tr>
 
-                <td class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                <td class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
                  <?php echo $garcon['nome'] ?>
                 </td>
-                <td class="auto">
-                    <center><?php echo $garcon['id_mesa'] ?></center>
-                </td>
+               
                 
                 <td class="auto">
                     <center>
