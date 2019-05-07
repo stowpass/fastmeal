@@ -5,6 +5,9 @@ class Cardapiocontroller extends CI_Controller {
 
         public function index ()
         {
+            
+
+
                 $this->load->view('layout/topo');
                 $this->load->model('cardapiomodel');
                 $lista['cardapios'] = $this->cardapiomodel->listarCardapio();
