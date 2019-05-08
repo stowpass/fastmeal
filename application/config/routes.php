@@ -47,4 +47,5 @@ $route['garcon/excluir/(:num)'] = 'garconcontroller/excluir/$1';
 
 $route['login'] = 'logincontroller/index';
 $route['login/verificar'] = 'logincontroller/verificar';
+$route['login/logout'] = 'logincontroller/logout';
 
