@@ -3,10 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Cardapiocontroller extends CI_Controller {
 
-        public function index ()
-        {
-            
-
+        public function index (){    
+                if (!$this->session->usuario) return;
 
                 $this->load->view('layout/topo');
                 $this->load->model('cardapiomodel');
@@ -18,7 +16,8 @@ class Cardapiocontroller extends CI_Controller {
 
     
 public function novo()
-{
+{    
+        if (!$this->session->usuario) return;
         $this->load->view('layout/topo');
         $this->load->model('categoriamodel');
         $lista['vercategoria'] = $this->categoriamodel->listarCategoria(); 
@@ -34,7 +33,8 @@ public function novo()
  public function salvar()
 	{
                
-                              
+                if (!$this->session->usuario) return;
+              
                 $this->load->model('cardapiomodel');
 		$this->cardapiomodel->salvar();
 		redirect('cardapio');
@@ -43,7 +43,8 @@ public function novo()
 
 public function editar($id)
 {
-        
+        if (!$this->session->usuario) return;
+
         $this->load->model('cardapiomodel');
         $this->load->model('categoriamodel');
         $lista['vercategoria'] = $this->categoriamodel->listarCategoria();
@@ -57,6 +58,8 @@ public function editar($id)
 
 public function atualizar($id)
 {
+        if (!$this->session->usuario) return;
+
         $this->load->model('cardapiomodel');
         $this->cardapiomodel->atualizar($id);
         $lista['cardapios'] = $this->cardapiomodel->listarcardapio();
@@ -66,6 +69,7 @@ public function atualizar($id)
 
 public function excluir($id)
 {
+        if (!$this->session->usuario) return;
 
         $this->load->model('cardapiomodel');
         $this->cardapiomodel->excluir($id);

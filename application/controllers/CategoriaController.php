@@ -5,6 +5,8 @@ class Categoriacontroller extends CI_Controller {
 
 public function index ()
         {
+                if (!$this->session->usuario) return;
+
                 $this->load->view('layout/topo');
                 $this->load->model('categoriamodel');
                 $lista['categorias'] = $this->categoriamodel->listarCategoria();
@@ -16,6 +18,7 @@ public function index ()
     
 public function novo()
 {
+        if (!$this->session->usuario) return;
         $this->load->view('layout/topo');
         $this->load->model('categoriamodel');
         $lista['ver'] = $this->categoriamodel->vazio();
@@ -28,7 +31,9 @@ public function novo()
 
  public function salvar()
 	{
-		$this->load->model('categoriamodel');
+                if (!$this->session->usuario) return;
+
+                $this->load->model('categoriamodel');
 		$this->categoriamodel->salvar();
 		redirect('categoria');
         }
@@ -36,7 +41,8 @@ public function novo()
 
 public function editar($id)
 {
-        
+        if (!$this->session->usuario) return;
+
         $this->load->model('categoriamodel');
         $lista['ver'] = $this->categoriamodel->listarCategorias_com_id($id);
         $lista['acao'] = 'atualizar/' . $id;
@@ -48,6 +54,8 @@ public function editar($id)
 
 public function atualizar($id)
 {
+        if (!$this->session->usuario) return;
+
         $this->load->model('categoriamodel');
         $this->categoriamodel->atualizar($id);
         $lista['categorias'] = $this->categoriamodel->listarCategoria();
@@ -57,6 +65,7 @@ public function atualizar($id)
 
 public function excluir($id)
 {
+        if (!$this->session->usuario) return;
 
         $this->load->model('categoriamodel');
         $this->categoriamodel->excluir($id);

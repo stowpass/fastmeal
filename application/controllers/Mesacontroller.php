@@ -5,6 +5,8 @@ class Mesacontroller extends CI_Controller {
 
 public function index ()
         {
+                if (!$this->session->usuario) return;
+
                 $this->load->view('layout/topo');
                 $this->load->model('mesamodel');
                 $lista['mesas'] = $this->mesamodel->listarMesa();
@@ -16,6 +18,8 @@ public function index ()
     
 public function novo()
 {
+        if (!$this->session->usuario) return;
+
         $this->load->view('layout/topo');
         $this->load->model('mesamodel');
         $lista['ver'] = $this->mesamodel->vazio();
@@ -28,6 +32,8 @@ public function novo()
 
  public function salvar()
 	{
+                if (!$this->session->usuario) return;
+
 		$this->load->model('mesamodel');
 		$this->mesamodel->salvar();
 		redirect('mesa');
@@ -36,7 +42,8 @@ public function novo()
 
 public function editar($id)
 {
-        
+        if (!$this->session->usuario) return;
+
         $this->load->model('mesamodel');
         $lista['ver'] = $this->mesamodel->listarMesas_com_id($id);
         $lista['acao'] = 'atualizar/' . $id;
@@ -48,6 +55,8 @@ public function editar($id)
 
 public function atualizar($id)
 {
+        if (!$this->session->usuario) return;
+
         $this->load->model('mesamodel');
         $this->mesamodel->atualizar($id);
         $lista['mesas'] = $this->mesamodel->listarmesa();
@@ -57,6 +66,7 @@ public function atualizar($id)
 
 public function excluir($id)
 {
+        if (!$this->session->usuario) return;
 
         $this->load->model('mesamodel');
         $this->mesamodel->excluir($id);

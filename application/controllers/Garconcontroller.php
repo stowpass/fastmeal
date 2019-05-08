@@ -5,6 +5,8 @@ class Garconcontroller extends CI_Controller {
 
         public function index ()
         {
+                if (!$this->session->usuario) return;
+
                 $this->load->view('layout/topo');
                 $this->load->model('garconmodel');
                 $lista['garcons'] = $this->garconmodel->listarGarcon();
@@ -16,6 +18,8 @@ class Garconcontroller extends CI_Controller {
     
 public function novo()
 {
+        if (!$this->session->usuario) return;
+
         $this->load->view('layout/topo');
         $this->load->model('mesamodel');
         $lista['vermesa'] = $this->mesamodel->listarmesa(); 
@@ -31,7 +35,8 @@ public function novo()
  public function salvar()
 	{
                
-                              
+                if (!$this->session->usuario) return;
+               
                 $this->load->model('garconmodel');
 		$this->garconmodel->salvar();
 		redirect('garcon');
@@ -40,7 +45,8 @@ public function novo()
 
 public function editar($id)
 {
-        
+        if (!$this->session->usuario) return;
+
         $this->load->model('garconmodel');
         $this->load->model('mesamodel');
         $lista['vermesa'] = $this->mesamodel->listarmesa();
@@ -54,6 +60,8 @@ public function editar($id)
 
 public function atualizar($id)
 {
+        if (!$this->session->usuario) return;
+
         $this->load->model('garconmodel');
         $this->garconmodel->atualizar($id);
         $lista['garcons'] = $this->garconmodel->listargarcon();
@@ -63,6 +71,7 @@ public function atualizar($id)
 
 public function excluir($id)
 {
+        if (!$this->session->usuario) return;
 
         $this->load->model('garconmodel');
         $this->garconmodel->excluir($id);
