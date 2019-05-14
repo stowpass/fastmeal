@@ -49,3 +49,8 @@ $route['login'] = 'logincontroller/index';
 $route['login/verificar'] = 'logincontroller/verificar';
 $route['login/logout'] = 'logincontroller/logout';
 
+$route['abertura'] = 'aberturacontroller/index';
+$route['abertura/salvar'] = 'aberturacontroller/salvar';
+$route['abertura/novo'] = 'aberturacontroller/novo';
+
+

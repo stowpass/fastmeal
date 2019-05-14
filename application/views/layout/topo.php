@@ -41,8 +41,8 @@
   <script src="<?php echo base_url('assets/template'); ?>/https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="<?php echo base_url('assets/template'); ?>/https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
-
     <!-- Google Font -->
+  
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
@@ -358,6 +358,22 @@
                     </ul>
                 </li>
              
+
+                <li class="active treeview">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i> <span>Administração</span>
+                        <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li class="active">
+                            <a href="<?php echo base_url ('abertura'); ?>">
+                            <i class="fa fa-circle-o"></i>Abertura</a>
+                         </li>
+                        
+                    </ul>
+                </li>
         </section>
         <!-- /.sidebar -->
     </aside>

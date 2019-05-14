@@ -5,7 +5,7 @@ class Mesacontroller extends CI_Controller {
 
 public function index ()
         {
-                if (!$this->session->usuario) return;
+                if (!$this->session->usuario) redirect('login');
 
                 $this->load->view('layout/topo');
                 $this->load->model('mesamodel');
@@ -18,7 +18,7 @@ public function index ()
     
 public function novo()
 {
-        if (!$this->session->usuario) return;
+        if (!$this->session->usuario) redirect('login');
 
         $this->load->view('layout/topo');
         $this->load->model('mesamodel');
@@ -32,7 +32,7 @@ public function novo()
 
  public function salvar()
 	{
-                if (!$this->session->usuario) return;
+                if (!$this->session->usuario) redirect('login');
 
 		$this->load->model('mesamodel');
 		$this->mesamodel->salvar();
@@ -42,7 +42,7 @@ public function novo()
 
 public function editar($id)
 {
-        if (!$this->session->usuario) return;
+        if (!$this->session->usuario) redirect('login');
 
         $this->load->model('mesamodel');
         $lista['ver'] = $this->mesamodel->listarMesas_com_id($id);
@@ -55,7 +55,7 @@ public function editar($id)
 
 public function atualizar($id)
 {
-        if (!$this->session->usuario) return;
+        if (!$this->session->usuario) redirect('login');
 
         $this->load->model('mesamodel');
         $this->mesamodel->atualizar($id);
@@ -66,7 +66,7 @@ public function atualizar($id)
 
 public function excluir($id)
 {
-        if (!$this->session->usuario) return;
+        if (!$this->session->usuario) redirect('login');
 
         $this->load->model('mesamodel');
         $this->mesamodel->excluir($id);

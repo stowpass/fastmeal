@@ -5,7 +5,7 @@ class Garconcontroller extends CI_Controller {
 
         public function index ()
         {
-                if (!$this->session->usuario) return;
+                if (!$this->session->usuario) redirect('login');
 
                 $this->load->view('layout/topo');
                 $this->load->model('garconmodel');
@@ -18,7 +18,7 @@ class Garconcontroller extends CI_Controller {
     
 public function novo()
 {
-        if (!$this->session->usuario) return;
+        if (!$this->session->usuario) redirect('login');
 
         $this->load->view('layout/topo');
         $this->load->model('mesamodel');
@@ -35,7 +35,7 @@ public function novo()
  public function salvar()
 	{
                
-                if (!$this->session->usuario) return;
+                if (!$this->session->usuario) redirect('login');
                
                 $this->load->model('garconmodel');
 		$this->garconmodel->salvar();
@@ -45,7 +45,7 @@ public function novo()
 
 public function editar($id)
 {
-        if (!$this->session->usuario) return;
+        if (!$this->session->usuario) redirect('login');
 
         $this->load->model('garconmodel');
         $this->load->model('mesamodel');
@@ -60,7 +60,7 @@ public function editar($id)
 
 public function atualizar($id)
 {
-        if (!$this->session->usuario) return;
+        if (!$this->session->usuario) redirect('login');
 
         $this->load->model('garconmodel');
         $this->garconmodel->atualizar($id);
@@ -71,7 +71,7 @@ public function atualizar($id)
 
 public function excluir($id)
 {
-        if (!$this->session->usuario) return;
+        if (!$this->session->usuario) redirect('login');
 
         $this->load->model('garconmodel');
         $this->garconmodel->excluir($id);

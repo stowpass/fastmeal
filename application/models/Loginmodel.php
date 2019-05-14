@@ -36,6 +36,7 @@ class Loginmodel extends CI_Model
     }
     public function sair()
     {
+        $this->session->unset_userdata("id");
         $this->session->unset_userdata("usuario");
     }
 
