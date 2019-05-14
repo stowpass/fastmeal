@@ -14,15 +14,13 @@ defined('BASEPATH') OR exit('URL inválida.');
     <br>
     <hr>
     <a href="<?php echo site_url('categoria/novo'); ?>" class="btn btn-primary mb-2">Nova Categoria</a>
-  <hr>
+    <hr>
 
     <table class="table  table-bordered">
         <thead>
 
         <tr>
-            <th scope="col">
-                <center>ID</center>
-            </th>
+            
             <th scope="col">Nome</th>
             <th scope="col">
                 <center> Ações</center>
@@ -37,18 +35,15 @@ defined('BASEPATH') OR exit('URL inválida.');
 
             <tr>
 
-                <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                    <center><?php echo $categoria['id'] ?></center>
-                </td>
-                <td class="col-xs-8 col-sm-8 col-md-8 col-lg-8"><?php echo $categoria['nome'] ?></td>
+                <td class="col-xs-10 col-sm-10 col-md-10 col-lg-10"><?php echo $categoria['nome'] ?></td>
                 <td class="auto">
                     <center>
                         <a href="<?php echo base_url('categoria/editar/' . $categoria['id']); ?>"><i
-                                    class="fa fa-edit"></i>Editar
+                        class="fa fa-edit"></i>Editar
                         </a> |
                         <a href="<?php echo site_url('categoria/excluir/' . $categoria['id']); ?>"
-                           onclick='return confirm("Deseja realmente deletar esse categoria?");'><i
-                                    class="fa fa-trash"></i>Excluir</a>
+                        onclick='return confirm("Deseja realmente deletar esse categoria?");'><i
+                        class="fa fa-trash"></i>Excluir</a>
                     </center>
                 </td>
 
