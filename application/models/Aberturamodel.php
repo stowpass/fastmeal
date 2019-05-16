@@ -27,4 +27,10 @@ class Aberturamodel extends CI_Model
         return $query->result_array();
     }
 
+    public function listarDiariasID($id){
+
+        $this->db->from('diarias')->where('id=', $id);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
 }

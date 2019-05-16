@@ -52,5 +52,6 @@ $route['login/logout'] = 'logincontroller/logout';
 $route['abertura'] = 'aberturacontroller/index';
 $route['abertura/salvar'] = 'aberturacontroller/salvar';
 $route['abertura/novo'] = 'aberturacontroller/novo';
+$route['abertura/periodo/(:num)'] = 'aberturacontroller/periodoabrir/$1';
 
 

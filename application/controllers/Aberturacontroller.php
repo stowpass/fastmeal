@@ -27,6 +27,20 @@ public function novo(){
        
 }
 
+public function periodoAbrir($id){
+        
+        
+        if (!$this->session->usuario) redirect('login');
+
+        $this->load->view('layout/topo'); 
+        $lista['acao'] = "salvar";
+        $this->load->model('aberturamodel');
+        $lista['datas'] =  $this->aberturamodel->listarDiariasID($id);
+        $this->load->view('aberturas/periodo',$lista);              
+        $this->load->view('layout/rodape');
+
+       
+}
 
  public function salvar(){
                

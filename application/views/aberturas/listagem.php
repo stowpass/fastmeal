@@ -48,8 +48,8 @@ defined('BASEPATH') OR exit('URL inválida.');
                
                 <td class="auto">
                     <center>
-                        <a href="<?php echo base_url('abertura/editar/' .$datax['id']); ?>"><i
-                                    class="fa fa-edit"></i>Editar
+                        <a href="<?php echo base_url('abertura/periodo/' .$datax['id']); ?>"><i
+                                    class="fa fa-edit"></i>Inserir Periodo
                         </a> |
                         <a href="<?php echo site_url('abertura/excluir/' .$datax['id']); ?>"
                            onclick='return confirm("Deseja realmente deletar esse mesa?");'><i
