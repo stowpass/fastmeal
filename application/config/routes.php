@@ -55,3 +55,11 @@ $route['abertura/novo'] = 'aberturacontroller/novo';
 $route['abertura/periodo/(:num)'] = 'aberturacontroller/periodoabrir/$1';
 
 
+$route['pedido'] = 'pedidocontroller/index';
+$route['pedido/salvar'] = 'pedidocontroller/salvar';
+$route['pedido/novo'] = 'pedidocontroller/novo';
+$route['pedido/editar/(:num)']= 'pedidocontroller/editar/$1';
+$route['pedido/atualizar/(:num)'] = 'pedidocontroller/atualizar/$1';
+$route['pedido/abrir/(:num)'] = 'pedidocontroller/abrir/$1';
+$route['pedido/excluir/(:num)'] = 'pedidocontroller/excluir/$1';
+$route['pedido/json'] = 'pedidocontroller/json';

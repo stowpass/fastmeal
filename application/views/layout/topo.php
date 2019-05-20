@@ -52,7 +52,7 @@
 
     <header class="main-header">
         <!-- Logo -->
-        <a href="inicial" class="logo">
+        <a href="<?php echo base_url('inicial');?>" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>F</b>M</span>
             <!-- logo for regular state and mobile devices -->
@@ -371,7 +371,10 @@
                             <a href="<?php echo base_url ('abertura'); ?>">
                             <i class="fa fa-circle-o"></i>Abertura</a>
                          </li>
-                        
+                         <li class="active">
+                            <a href="<?php echo base_url ('pedido'); ?>">
+                            <i class="fa fa-circle-o"></i>Pedido</a>
+                         </li>
                     </ul>
                 </li>
         </section>
