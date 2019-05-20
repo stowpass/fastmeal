@@ -244,7 +244,41 @@
 <script src="<?php echo base_url('assets/template'); ?>/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url('assets/template'); ?>/dist/js/demo.js"></script>
+<script>
 
+
+$(function() {
+  $('#botao-add-linha').click(function(e){
+    e.preventDefault();
+    var quantidade = $('#products-table tbody tr').length;
+    var linha = "<tr>";
+    linha += '<td><input required="required" class="form-control quantidade" type="text" name="quantidade-novo-' + quantidade + '" value=""></td>';
+    linha += '<td><input required="required" class="form-control descricao" type="text" name="descricao-novo-' + quantidade + '"  value=""></td>';
+    linha += '<td><input required="required" class="form-control valor_unit" type="number" name="valor_unit-novo-' + quantidade + '"  value=""></td>';
+    linha += '<td><input required="required" class="form-control valor_total" type="number" name="valor_total" disabled="" value=""></td>';
+    linha += '<td> <a class="remover-linha" id-local="0" href="#" style="color: red;">   <i class="fa fa-trash red"></i> Excluir </a></td>';
+    linha += "</tr>";
+    $("#products-table").append(linha);
+  });
+
+  $(document).on('click', '.remover-linha', function (e) {
+      e.preventDefault();
+      $(this).parent().parent().remove();
+
+  });
+
+  $(document).on('keyup', '.quantidade, .valor_unit', function(){
+    calcular($(this));
+  });
+});
+
+function calcular(campo){
+  var valor1 = parseInt(campo.parent().parent().find('.quantidade').val(), 10);
+  var valor2 = parseInt(campo.parent().parent().find('.valor_unit').val(), 10);
+  campo.parent().parent().find('.valor_total').val(valor1 * valor2);
+}
+
+          </script>
 
 </body>
 </html>

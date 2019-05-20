@@ -14,125 +14,76 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <hr>
     <!-- /.box-header -->
 
-    <!-- form start -->
-    <form role="form" action="<?php echo site_url('pedido/') . $acao; ?>" method="post" enctype="multipart/form-data">
-        <?php foreach ($ver as $registro) : ?>
-
-            <div class="box-body fluid border border-primary center">
-
-                <div class="row col-lg-12">
-                    <div class="form-group col-lg-8">
-                        <label for="exampleInputEmail1">Nome do pedido:</label>
-                        <input type="text" class="form-control"
-                               id="nome"
-                               name="nome"
-                               placeholder="Insira o nome de uma nova pedido"
-                               value="<?= $registro['nome']; ?>"
-                               required>
-                    </div>
-
+    <body>
+        <div class="row col-md-12">
+                <div class="form-group col-md-12">
+                <button style="margin: 10px 0;" 
+                        id="botao-add-linha"
+                        class="adicionar btn btn-primary">
+                        <i class="fa fa-plus"></i>&nbsp;Novo Linha</button>
+                
                 </div>
+    <div class="row ">
+        <div class="form-group col-md-12">
+                               <div class="col-lg-12">
+                                <table id="products-table" class="table table-bordered" style="width:100%">
+                                    <thead>
+                                    <tr>
+                                        <th>Quantidade</th>
+                                        <th>Descrição</th>
+                                        <th>Valor Unit</th>
+                                        <th>Valor Total</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                                          <input required="required" 
+                                          class="form-control quantidade" 
+                                          type="text" 
+                                          name="quantidade-novo-0"
+    
+                                          value="">
+                                        </td>
+                                        <td class="col-xs-6 col-sm-6 col-md-6 col-lg-6" >                                     
+                                        <input required="required" 
+                                          class="form-control descricao" 
+                                          type="text" 
+                                          name="descricao-novo-0"
+                                          value="">
+                                        </td>
+                                        <td class="auto">
+                                          <input required="required" 
+                                          class="form-control valor_unit" 
+                                          type="number" 
+                                          onblur="calcular()"
+                                          name="valor_unit-novo-0"
+                                          value="">
+                                        </td>
+                                        <td class="auto">
+                                          <input required="required" 
+                                          class="form-control valor_total" 
+                                          type="number" 
+                                          disabled=""
+                                          name="valor_total-novo-0"
+                                          value="">
+                                        </td>
+                                        <td>
+                                            <a class="remover-linha" id-local="0" href="#" style="color: red;">
+                                                <i class="fa fa-trash red"></i> Excluir
+                                            </a>
+                                          </td>
+                                        </tr>
+                                        
+                                      </tbody>
+                                </table>
+                            </div>
+                        </div>
+           </div>
+          </div>
+        
 
-                <div class="row col-lg-12">
-                    <div class="form-group col-lg-4">
-                        <label for="id_categoria">Categoria</label>
-                        <select class="form-control" name="id_categoria" id="id_categoria" required>
-                            <option value="">Selecione Categoria</option>
-                            <?php 
-                            
-                            foreach ($vercategoria as $verregistro): 
-                                
-                                
-                                //$selecionar = ($verregistro['id'] == $registro['id_categoria'] ? 'selected="selected"' : "");
-                                
-                                
-                                if ($verregistro['id'] == $registro['id_categoria'])
-                                     {
-                                         $selecionar='selected="selected"';
-                                    } 
-                                else {
-                                    
-                                    $selecionar = "";
-                                }
-
-                                
-                                ?>
-                                <option <?=$selecionar;?> value="<?php echo $verregistro['id'] ?>"><?php echo $verregistro['nome']; ?></option>
-
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                </div>
-
-
-
-
-                <div class="form-group col-lg-8">
-                    <label class="control-label" for="textarea">Descrição</label>
-
-                    <textarea class="form-control"
-                              id="descricao"
-                              name="descricao"><?= $registro['descricao']; ?></textarea>
-
-
-                </div>
-
-             
-
-                <div class="row col-lg-12">
-                    <div class="form-group col-lg-8">
-                        <label for="exampleInputEmail1">Valor
-                            <input type="text" class="form-control"
-                                   id="nome"
-                                   name="valor"
-
-                                   value="<?= $registro['valor']; ?>"
-                                   required>
-                    </div>
-
-                </div>
-
-                <div class="row col-lg-12">
-                    <div class="form-group col-lg-8">
-                        
-                        <img class="img-thumbnail col-xs-2 col-sm-2 col-md-2 col-lg-2" src="<?php
-                         if ($registro['foto'] != ""){
-                            echo base_url('assets/imagens/'.$registro['foto']);
-                        }else{
-                            echo base_url('assets/imagens/'."default.png");
-                        } ?>">
-                     
-                    </div>
-
-                </div>
-
-
-                <div class="row col-lg-12">
-                    <div class="form-group col-lg-8">
-                        <label for="exampleInputEmail1">Foto
-                            <input type="file" class="form-control"
-                                   id="foto"
-                                   name="foto"
-
-                                   value=""
-                            >
-                    </div>
-
-                </div>
-
-
-
-            </div>
-            <!-- /.box-body -->
-            <div class="form-group col-lg-4">
-                <div class="box-footer mb-2 p-3">
-                    <button type="submit" class="btn btn-primary">Salvar</button>
-                </div>
-                <div class="box-footer mb-2 p-3 col-lg-5">
-                    <a href="<?php echo site_url('pedido') ?>">Voltar</a>
-                </div>
-            </div>
-
-        <?php endforeach ?>
     </form>
+       
 
