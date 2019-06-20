@@ -10,7 +10,17 @@ class Inicial extends CI_Controller {
             $this->load->view('layout/rodape');
     
        }      
-
+       public function json()
+       {
+               $this->load->model('cardapiomodel');
+               $lista['cardapios'] = $this->cardapiomodel->listarCardapio();
+               $jax = $this->cardapiomodel->listarCardapio();
+       
+              // $json= json_encode($jax, JSON_NUMERIC_CHECK);
+               $json= json_encode($jax);
+               echo '{"android":'.$json.'}';
+       
+       }
 
 
 }

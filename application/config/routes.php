@@ -15,6 +15,9 @@ $route['categoria/editar/(:num)']= 'categoriacontroller/editar/$1';
 $route['categoria/atualizar/(:num)'] = 'categoriacontroller/atualizar/$1';
 $route['categoria/abrir/(:num)'] = 'categoriacontroller/abrir/$1';
 $route['categoria/excluir/(:num)'] = 'categoriacontroller/excluir/$1';
+$route['categoria/json'] = 'categoriacontroller/json';
+$route['categoria/json2'] = 'categoriacontroller/json2';
+
 
 
 $route['cardapio'] = 'cardapiocontroller/index';
@@ -25,6 +28,8 @@ $route['cardapio/atualizar/(:num)'] = 'cardapiocontroller/atualizar/$1';
 $route['cardapio/abrir/(:num)'] = 'cardapiocontroller/abrir/$1';
 $route['cardapio/excluir/(:num)'] = 'cardapiocontroller/excluir/$1';
 $route['cardapio/json'] = 'cardapiocontroller/json';
+$route['cardapio/json2'] = 'cardapiocontroller/json2';
+$route['cardapio/mobile'] = 'cardapiocontroller/mobile';
 
 
 $route['mesa'] = 'mesacontroller/index';

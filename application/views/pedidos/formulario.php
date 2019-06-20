@@ -12,9 +12,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     </div>
     <hr>
-    <!-- /.box-header -->
-
     <body>
+<form action="" method="post">
+
+    <div class="row col-lg-12">
+                    <div class="form-group col-lg-4">
+                        <label for="exampleInputEmail1">Numero da Mesa:</label>
+                        <input type="text" class="form-control"
+                               id="nome"
+                               name="nome"
+                               placeholder="Insira o nome de uma nova mesa"
+                               value=""
+                               required>
+                    </div>
+
+             
+
+
         <div class="row col-md-12">
                 <div class="form-group col-md-12">
                 <button style="margin: 10px 0;" 
@@ -80,10 +94,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </table>
                             </div>
                         </div>
-           </div>
-          </div>
-        
+           </div> 
+    
+ </form>
+            
+ <div class="form-group">
+  <label class="col-md-4 control-label" for=""></label>
+  <div class="col-md-8">
+    <button id="" name="" type="submit" class="btn btn-primary">Salvar</button>
+    <a class="btn btn-danger"href="<?php echo site_url('abertura')?>">Cancelar</a>
+  </div>
+</div>
+  </div>
+  <br>
+<hr>   
 
-    </form>
+
+
        
 

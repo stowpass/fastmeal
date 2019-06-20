@@ -81,15 +81,25 @@ public function json()
         $this->load->model('cardapiomodel');
         $lista['cardapios'] = $this->cardapiomodel->listarCardapio();
         $jax = $this->cardapiomodel->listarCardapio();
-        echo "<pre>";
-       echo json_encode($jax);
-        print_r($jax);
-        echo "</pre>";
 
-
-}
-
-
-
+       // $json= json_encode($jax, JSON_NUMERIC_CHECK);
+        $json= json_encode($jax);
+        echo '{"cardapios":'.$json.'}';
 
 }
+//2()
+//
+//>model('cardapiomodel');
+//>model('categoriamodel');
+//>cardapiomodel->listarCardapio();
+//->categoriamodel->listarCategoria();
+//jax);
+//ay(array($jax[]);
+//tes); 
+//code($jax, JSON_NUMERIC_CHECK);
+//= json_encode($categoria);
+//
+        
+       
+}
+

@@ -27,7 +27,22 @@ public function novo()
         $this->load->view('layout/rodape');
        
 }
-
+public function json2()
+{
+        $this->load->model('categoriamodel');
+        $jax= $this->categoriamodel->listarCategorias_com_cadapios();
+        //var_dump($jax);
+        
+foreach( $jax as $cliente){
+        $clientes[ array_shift( $cliente ) ][] = $cliente;
+    }
+    print_r($clientes); 
+    //$json= json_encode($jax, JSON_NUMERIC_CHECK);
+       $clientes= json_encode($clientes);
+       echo $json;
+        
+       
+}
 
  public function salvar()
 	{
@@ -72,6 +87,18 @@ public function excluir($id)
         redirect('categoria');
 
 }
+
+public function json()
+{
+        $this->load->model('categoriamodel');
+        $jax = $this->categoriamodel->listarCategoria();
+        //$json= json_encode($jax, JSON_NUMERIC_CHECK);
+        $json= json_encode($jax);
+        echo '{"categorias":'.$json.'}';
+        
+       
+}
+
 
 
 }

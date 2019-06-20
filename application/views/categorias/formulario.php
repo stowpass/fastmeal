@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- /.box-header -->
 
     <!-- form start -->
-    <form role="form" action="<?php echo site_url('categoria/') . $acao; ?>" method="post">
+    <form role="form" action="<?php echo site_url('categoria/') . $acao; ?>" method="post" enctype="multipart/form-data">
         <?php foreach ($ver as $registro) : ?>
        
         <div class="box-body fluid border border-primary center">
@@ -34,6 +34,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
            
             
             </div>
+            <div class="row col-lg-12">
+                    <div class="form-group col-lg-8">
+                        
+                        <img class="img-thumbnail col-xs-2 col-sm-2 col-md-2 col-lg-2" src="<?php
+                         if ($registro['foto'] != ""){
+                            echo base_url('assets/imagens/'.$registro['foto']);
+                        }else{
+                            echo base_url('assets/imagens/'."default.png");
+                        } ?>">
+                     
+                    </div>
+
+                </div>
             <!-- /.box-body -->
             <div class="row col-lg-12">
                 <div class="box-footer mb-2 p-3">

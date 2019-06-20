@@ -69,8 +69,15 @@ class Categoriamodel extends CI_Model
     public function listarCategorias_com_id($id){
         //retorna os dados do cliente
         return $this->db->from('categorias')->where('id', $id)->get()->result_array();
+        
     }       
-
+    public function listarCategorias_com_cadapios(){
+        $this->db->select('*');
+$this->db->from('cardapios');
+$this->db->join('categorias', 'cardapios.id_categoria = categorias.id');
+$sql = $this->db->get();
+        return $sql->result_array();
+    }  
 
 
 
