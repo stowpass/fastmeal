@@ -22,6 +22,8 @@ defined('BASEPATH') OR exit('URL inválida.');
         <tr>
             
             <th scope="col">Nome</th>
+            <th scope="col"><center>Foto</center></th>
+
             <th scope="col">
                 <center> Ações</center>
             </th>
@@ -35,7 +37,10 @@ defined('BASEPATH') OR exit('URL inválida.');
 
             <tr>
 
-                <td class="col-xs-10 col-sm-10 col-md-10 col-lg-10"><?php echo $categoria['nome'] ?></td>
+                <td class="col-xs-8 col-sm-8 col-md-8 col-lg-8"><?php echo $categoria['nome'] ?></td>
+                <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                    <img class="img-thumbnail" src="<?php echo base_url('assets/imagens/'.$categoria['foto']) ?>" alt=50" srcset="">
+                </td>
                 <td class="auto">
                     <center>
                         <a href="<?php echo base_url('categoria/editar/' . $categoria['id']); ?>"><i

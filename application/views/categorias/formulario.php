@@ -34,16 +34,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
            
             
             </div>
+        
             <div class="row col-lg-12">
                     <div class="form-group col-lg-8">
-                        
-                        <img class="img-thumbnail col-xs-2 col-sm-2 col-md-2 col-lg-2" src="<?php
-                         if ($registro['foto'] != ""){
-                            echo base_url('assets/imagens/'.$registro['foto']);
-                        }else{
-                            echo base_url('assets/imagens/'."default.png");
-                        } ?>">
-                     
+                        <label for="exampleInputEmail1">Foto da Categoria
+                            <input type="file" class="form-control"
+                                   id="foto"
+                                   name="foto"
+
+                                   value=""
+                            >
                     </div>
 
                 </div>

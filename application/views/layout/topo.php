@@ -345,7 +345,7 @@
                          </li>
                         <li>
                             <a href="<?php echo base_url ('cardapio'); ?>">
-                            <i class="fa fa-circle-o"></i>Cardapio</a>
+                            <i class="fa fa-circle-o"></i>Cardapios</a>
                         </li>
                         <li>
                             <a href="<?php echo base_url ('mesa'); ?>">
@@ -353,7 +353,7 @@
                         </li>
                         <li>
                             <a href="<?php echo base_url ('garcon'); ?>">
-                            <i class="fa fa-circle-o"></i>Cadastrar Garçon</a>
+                            <i class="fa fa-circle-o"></i>Garçons</a>
                         </li>
                     </ul>
                 </li>

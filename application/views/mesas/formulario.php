@@ -35,6 +35,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
             </div>
+            <div class="row col-lg-12">
+                    <div class="form-group col-lg-4">
+                        <label for="id_garcon">Garçon</label>
+                        <select class="form-control" name="id_garcon" id="id_garcon" required>
+                            <option value="">Selecione Garçon</option>
+                            <?php 
+                            
+                            foreach ($garcons as $garcon): 
+                                
+                                
+                                //$selecionar = ($verregistro['id'] == $registro['id_categoria'] ? 'selected="selected"' : "");
+                                
+                                
+                                if ($garcon['id'] == $registro['id_garcon'])
+                                     {
+                                         $selecionar='selected="selected"';
+                                    } 
+                                else {
+                                    
+                                    $selecionar = "";
+                                }
+
+                                
+                                ?>
+                                <option <?=$selecionar;?> value="<?php echo $garcon['id'] ?>"><?php echo $garcon['nome']; ?></option>
+
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                </div>
             <!-- /.box-body -->
             <div class="form-group col-lg-4">
                 <div class="box-footer mb-2 p-3">

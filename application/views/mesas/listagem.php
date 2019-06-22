@@ -21,6 +21,11 @@ defined('BASEPATH') OR exit('URL inválida.');
 
         <tr>
             <th scope="col">Nome</th>
+             <th scope="col">
+             <center>
+                Garçon que atende
+            </center>
+            </th>
          
             <th scope="col"><center>Ações</center></th>
 
@@ -33,10 +38,35 @@ defined('BASEPATH') OR exit('URL inválida.');
 
             <tr>
 
-                <td class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                <td class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                  <?php echo $mesa['nome'] ?>
                 </td>
-               
+                <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                 <center>
+                     <?php                         
+                            foreach ($garcons as $garcon): 
+                                
+                                
+                                //$selecionar = ($verregistro['id'] == $registro['id_categoria'] ? 'selected="selected"' : "");
+                                
+                                
+                                if ($garcon['id'] == $mesa['id_garcon'])
+                                     {
+                                      
+                                      echo $garcon['nome'];       
+                                                                  } 
+                                else {
+                                    
+                                
+                                }
+
+                            
+
+                            endforeach; ?>
+                        
+                
+                 </center>
+                 </td>
                
                 <td class="auto">
                     <center>

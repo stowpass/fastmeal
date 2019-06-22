@@ -10,6 +10,8 @@ public function index ()
                 $this->load->view('layout/topo');
                 $this->load->model('mesamodel');
                 $lista['mesas'] = $this->mesamodel->listarMesa();
+                $this->load->model('garconmodel');
+                $lista['garcons'] = $this->garconmodel->listarGarcon();
                 $this->load->view('mesas/listagem', $lista);
                 $this->load->view('layout/rodape');
 
@@ -24,6 +26,8 @@ public function novo()
         $this->load->model('mesamodel');
         $lista['ver'] = $this->mesamodel->vazio();
         $lista['acao'] = "salvar";
+        $this->load->model('garconmodel');
+        $lista['garcons'] = $this->garconmodel->listarGarcon();
         $this->load->view('mesas/formulario', $lista);
         $this->load->view('layout/rodape');
        
@@ -46,6 +50,8 @@ public function editar($id)
 
         $this->load->model('mesamodel');
         $lista['ver'] = $this->mesamodel->listarMesas_com_id($id);
+        $this->load->model('garconmodel');
+        $lista['garcons'] = $this->garconmodel->listarGarcon();
         $lista['acao'] = 'atualizar/' . $id;
         $this->load->view('layout/topo');
         $this->load->view('mesas/formulario',$lista);
@@ -73,6 +79,18 @@ public function excluir($id)
         redirect('mesa');
 
 }
+
+public function json()
+{
+        $this->load->model('mesamodel');
+        $jax = $this->mesamodel->listarMesa();
+        //$json= json_encode($jax, JSON_NUMERIC_CHECK);
+        $json= json_encode($jax);
+        echo '{"Mesas":'.$json.'}';
+        
+       
+}
+
 
 
 }

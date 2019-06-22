@@ -25,6 +25,7 @@ class Categoriamodel extends CI_Model
         return array (0=>array(
             
             "nome"=>"",
+            "foto"=>"",
         
 
         ));
@@ -34,22 +35,65 @@ class Categoriamodel extends CI_Model
     public function salvar()
     {
  
-            foreach(array_keys($_POST) as $chave){
-                eval('$this->' . $chave . ' = $_POST["' . $chave . '"];');
-            }
-            
-            return $this->db->insert('categorias', $this);
+           //oreach(array_keys($_POST) as $chave){
+           //   eval('$this->' . $chave . ' = $_POST["' . $chave . '"];');
+           //
+           $fotografias = array();
+           foreach ($_FILES as $foto) {
+
+               if($foto['name'] !=''){
+                   $novo_nome = uniqid().'_'.$foto['name'];
+                   array_push($fotografias,$novo_nome);
+                   move_uploaded_file($foto['tmp_name'],'assets/imagens/' .$novo_nome);
+               }else{
+                   $novo_nome = "default.png";
+               }
+           }
+
+           $data = array(
+               'nome'           => $_POST['nome'],
+               
+               'foto'          => $novo_nome
+
+       );
+            return $this->db->insert('categorias', $data);
 
     }
 //==============================================================
     public function atualizar($id)
     {
            
-          foreach(array_keys($_POST) as $chave){
-                eval('$this->' . $chave . ' = $_POST["' . $chave . '"];');
-            }
+       // foreach(array_keys($_POST) as $chave){
+       //       eval('$this->' . $chave . ' = $_POST["' . $chave . '"];');
+       //   }
 
-            return $this->db->update('categorias', $this, "id = $id");
+
+       $fotografias = array();
+       foreach ($_FILES as $foto) {
+
+           if($foto['name'] !=''){
+               $novo_nome = uniqid().'_'.$foto['name'];
+               array_push($fotografias,$novo_nome);
+               move_uploaded_file($foto['tmp_name'],'assets/imagens/' .$novo_nome);
+           }else{
+               $novo_nome = "";
+           }
+           
+                  }
+       if ($novo_nome == "") {
+            
+       $data = array(
+           'nome'           => $_POST['nome'],
+         
+       );
+       } else {
+           $data = array(
+               'nome'           => $_POST['nome'],
+               'foto'          => $novo_nome       
+           );
+        }
+
+            return $this->db->update('categorias', $data, "id = $id");
          
 
     }
