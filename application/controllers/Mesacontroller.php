@@ -83,7 +83,7 @@ public function excluir($id)
 public function json()
 {
         $this->load->model('mesamodel');
-        $jax = $this->mesamodel->listarMesa();
+        $jax = $this->mesamodel->listarMesaEnomeGarcom();
         //$json= json_encode($jax, JSON_NUMERIC_CHECK);
         $json= json_encode($jax);
         echo '{"Mesas":'.$json.'}';

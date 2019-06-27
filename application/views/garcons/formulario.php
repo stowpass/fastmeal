@@ -37,6 +37,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
             </div>
+            <div class="row col-lg-12">
+                    <div class="form-group col-lg-8">
+                        <label for="exampleInputEmail1">Foto da Categoria
+                            <input type="file" class="form-control"
+                                   id="foto"
+                                   name="foto"
+
+                                   value=""
+                            >
+                    </div>
+
+                </div>
             <!-- /.box-body -->
             <div class="form-group col-lg-4">
                 <div class="box-footer mb-2 p-3">

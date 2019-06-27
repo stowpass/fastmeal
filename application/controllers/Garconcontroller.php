@@ -79,9 +79,16 @@ public function excluir($id)
 
 }
 
-
-
-
+public function json()
+{
+        $this->load->model('garconmodel');
+        $jax = $this->garconmodel->listarGarcon();
+        //$json= json_encode($jax, JSON_NUMERIC_CHECK);
+        $json= json_encode($jax);
+        echo '{"Garcons":'.$json.'}';
+        
+       
+}
 
 
 }

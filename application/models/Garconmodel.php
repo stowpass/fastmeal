@@ -38,13 +38,23 @@ class Garconmodel extends CI_Model
                 eval('$this->' . $chave . ' = $_POST["' . $chave . '"];');
             }
             */    
-        
-         
-
+            $fotografias = array();
+            foreach ($_FILES as $foto) {
+ 
+                if($foto['name'] !=''){
+                    $novo_nome = uniqid().'_'.$foto['name'];
+                    array_push($fotografias,$novo_nome);
+                    move_uploaded_file($foto['tmp_name'],'assets/imagens/' .$novo_nome);
+                }else{
+                    $novo_nome = "default.png";
+                }
+            }
+ 
             $data = array(
                 'nome'           => $_POST['nome'],
-            
-
+                
+                'foto'          => $novo_nome
+ 
         );
       
             return $this->db->insert('garcons', $data);
@@ -56,10 +66,30 @@ class Garconmodel extends CI_Model
     {
 
        
+        $fotografias = array();
+        foreach ($_FILES as $foto) {
+ 
+            if($foto['name'] !=''){
+                $novo_nome = uniqid().'_'.$foto['name'];
+                array_push($fotografias,$novo_nome);
+                move_uploaded_file($foto['tmp_name'],'assets/imagens/' .$novo_nome);
+            }else{
+                $novo_nome = "";
+            }
+            
+                   }
+        if ($novo_nome == "") {
+             
+        $data = array(
+            'nome'           => $_POST['nome'],
+          
+        );
+        } else {
             $data = array(
                 'nome'           => $_POST['nome'],
+                'foto'          => $novo_nome       
             );
-         
+         }
         
 
          /* Poderia ser resumido assim:::::::::::::::::::::::::::::::::::::::::::::::::

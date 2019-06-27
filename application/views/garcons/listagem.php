@@ -21,6 +21,7 @@ defined('BASEPATH') OR exit('URL inválida.');
 
         <tr>
             <th scope="col">Nome do Garçon</th>
+            <th scope="col"><center>Foto</center></th>
             
             <th scope="col"><center>Ações</center></th>
 
@@ -33,8 +34,11 @@ defined('BASEPATH') OR exit('URL inválida.');
 
             <tr>
 
-                <td class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                <td class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
                  <?php echo $garcon['nome'] ?>
+                </td>
+                <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                    <img class="img-thumbnail" src="<?php echo base_url('assets/imagens/'.$garcon['foto']) ?>" alt=50" srcset="">
                 </td>
                
                 
