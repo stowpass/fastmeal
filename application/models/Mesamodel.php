@@ -23,7 +23,7 @@ class Mesamodel extends CI_Model
     public function listarMesaEnomeGarcom(){
         
        
-       $this->db->select('m.id, m.nome, m.status, g.nome AS nomeGarcom, g.foto');
+       $this->db->select('m.id, m.nome, m.status,g.id AS idGarcom, g.nome AS nomeGarcom, g.foto');
 
       $this->db->from('mesas AS m');
       $this->db->join('garcons AS g', 'm.id_garcon = g.id');
@@ -31,6 +31,18 @@ class Mesamodel extends CI_Model
         return $query->result_array();
         
     }
+
+    public function listarMesaEnomeGarcomComID($id){
+        
+       
+        $this->db->select('m.id, m.nome, m.status,g.id AS idGarcom, g.nome AS nomeGarcom, g.foto');
+ 
+       $this->db->from('mesas AS m');
+       $this->db->join('garcons AS g', "m.id_garcon = g.id AND m.id = $id");
+       $query = $this->db->get();
+         return $query->result_array();
+         
+     }
 
     public  function vazio(){
         

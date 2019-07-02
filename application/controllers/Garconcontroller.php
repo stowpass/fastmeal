@@ -90,5 +90,15 @@ public function json()
        
 }
 
+public function jsonid($id)
+{
+        $this->load->model('garconmodel');
+        $jax = $this->garconmodel->listarGarcons_com_id($id);
+        //$json= json_encode($jax, JSON_NUMERIC_CHECK);
+        $json= json_encode($jax);
+        echo '{"Garcons":'.$json.'}';
+        
+       
+}
 
 }

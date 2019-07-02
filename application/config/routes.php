@@ -40,6 +40,8 @@ $route['mesa/atualizar/(:num)'] = 'mesacontroller/atualizar/$1';
 $route['mesa/abrir/(:num)'] = 'mesacontroller/abrir/$1';
 $route['mesa/excluir/(:num)'] = 'mesacontroller/excluir/$1';
 $route['mesa/json'] = 'mesacontroller/json';
+$route['mesa/jsonteste'] = 'mesacontroller/jsonteste';
+$route['mesa/jsonid/(:num)'] = 'mesacontroller/jsonid/$1';
 
 $route['garcon'] = 'garconcontroller/index';
 $route['garcon/salvar'] = 'garconcontroller/salvar';
@@ -49,6 +51,8 @@ $route['garcon/atualizar/(:num)'] = 'garconcontroller/atualizar/$1';
 $route['garcon/abrir/(:num)'] = 'garconcontroller/abrir/$1';
 $route['garcon/excluir/(:num)'] = 'garconcontroller/excluir/$1';
 $route['garcon/json'] = 'garconcontroller/json';
+$route['garcon/jsonid/(:num)'] = 'garconcontroller/jsonid/$1';
+
 
 
 

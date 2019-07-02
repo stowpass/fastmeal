@@ -91,6 +91,27 @@ public function json()
        
 }
 
+public function jsonid($id)
+{
+        $this->load->model('mesamodel');
+        $jax = $this->mesamodel->listarMesaEnomeGarcomComID($id);
+        //$json= json_encode($jax, JSON_NUMERIC_CHECK);
+        $json= json_encode($jax);
+        echo '{"Mesas":'.$json.'}';
+        
+       
+}
+
+public function jsonteste()
+{
+        $this->load->model('mesamodel');
+        $jax = $this->mesamodel->listarMesaEnomeGarcom();
+        //$json= json_encode($jax, JSON_NUMERIC_CHECK);
+        $json= json_encode($jax);
+        echo $json;
+        
+       
+}
 
 
 }
