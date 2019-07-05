@@ -123,7 +123,7 @@ class Garconmodel extends CI_Model
     }
    
     
-    public function listarGarcons_com_id($id){
+    public function     listarGarcons_com_id($id){
         //retorna os dados do cliente
         return $this->db->from('garcons')->where('id', $id)->get()->result_array();
     }       

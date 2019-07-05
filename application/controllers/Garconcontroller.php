@@ -101,4 +101,54 @@ public function jsonid($id)
        
 }
 
+public function avaliacao(){
+       
+        
+        $json = file_get_contents('https://fastmeal-af5e8.firebaseio.com/avaliacao.json'); 
+        $obj = json_decode($json, true);
+     
+        $this->load->model('garconmodel');
+        //$jax = $this->garconmodel->listarGarcons_com_id($id);
+
+ 
+
+        $idd = array();
+        $notaa = array();
+        $sei = array();
+        foreach($obj as $key => $value) {
+                $idd[$value['nomeGarcom']][] = $value['nota'];	
+        foreach($idd as $keyP => $valueP) {
+
+           $notaa[$keyP]= array_sum($idd[$keyP]);
+          
+	}
+
 }
+$this->load->view('layout/topo');
+$lista['notasEnomes'] = $notaa;
+$this->load->view('garcons/avaliacao',$lista);
+$this->load->view('layout/rodape');
+}
+
+
+}
+
+/**
+$etapas = array();
+$pontos = array();
+foreach($arrModelo as $key => $value) {
+	
+	$etapas[$value['match_id']][] = $value['total_points'];
+
+	foreach($etapas as $keyP => $valueP) {
+		$pontos[$keyP] = array_sum($etapas[$keyP]);
+	}
+
+}
+
+echo '<pre>';
+	var_dump($pontos);
+echo '<pre>'; 
+
+
+*/

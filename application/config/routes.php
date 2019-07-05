@@ -52,6 +52,8 @@ $route['garcon/abrir/(:num)'] = 'garconcontroller/abrir/$1';
 $route['garcon/excluir/(:num)'] = 'garconcontroller/excluir/$1';
 $route['garcon/json'] = 'garconcontroller/json';
 $route['garcon/jsonid/(:num)'] = 'garconcontroller/jsonid/$1';
+$route['garcon/avaliacao'] = 'garconcontroller/avaliacao';
+
 
 
 

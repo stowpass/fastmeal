@@ -368,8 +368,8 @@
                     </a>
                     <ul class="treeview-menu">
                         <li class="active">
-                            <a href="<?php echo base_url ('abertura'); ?>">
-                            <i class="fa fa-circle-o"></i>Abertura</a>
+                            <a href="<?php echo base_url ('garcon/avaliacao'); ?>">
+                            <i class="fa fa-circle-o"></i>Avaliações</a>
                          </li>
                          <li class="active">
                             <a href="<?php echo base_url ('pedido'); ?>">
